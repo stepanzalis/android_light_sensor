@@ -18,6 +18,10 @@ import android.annotation.TargetApi
 
 class MainActivity : FlutterActivity() {
 
+    companion object {
+        private const val PLATFORM_CHANNEL = "com.stepanzalis.lightsensor/platform"
+    }
+
     private lateinit var sensorManager: SensorManager
     private var lightSensor: Sensor? = null
     private var sensorEventListener: SensorEventListener? = null
@@ -59,9 +63,5 @@ class MainActivity : FlutterActivity() {
 
     private fun unsubscribeFromSensor() {
         sensorManager.unregisterListener(sensorEventListener)
-    }
-    
-    companion object {
-        private const val PLATFORM_CHANNEL = "com.stepanzalis.lightsensor/platform"
     }
 }
